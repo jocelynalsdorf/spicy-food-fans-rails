@@ -1,0 +1,28 @@
+<h3><%= @post.title %></h3>
+
+<%if @post.comments.any? %>
+  <h3>Comments in this section:</h3>
+
+  <p>Comment:</p>
+  <p>User Name:</p>
+
+    <ul>
+     <% @post.comments.each do |comment| %>
+        <li>><%= link_to comment.text, post_comment_path(@post, comment)%></li>
+     <% end %>
+    </ul>
+<% else %>
+
+  <h3>There are no comments in this category yet.</h3>
+
+<% end %>
+
+<p><%= link_to "Edit Comment", edit_comment_path(@post) %></li>
+<p><%= link_to "Delete", post_path(@post),
+                    :data => {:confirm => "Confirm?",
+                    :method => "delete"} %></p>
+
+<br>
+
+
+<%= link_to 'Add a New Comment', new_post_comment_path(@post) %>

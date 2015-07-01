@@ -1,0 +1,16 @@
+<% content_for :title, "Spicy Stuff | Posts" %>
+
+<h1>Index Sections</h1>
+
+<% if @posts.any? %>
+   <ul>
+     <% @posts.each do |post| %>
+       <li><%= link_to post.title, post_path(post) %></li>
+     <% end %>
+   </ul>
+<% else %>
+   <p><h3>No Posts Currently in Index</h3></p>
+ <% end %>
+
+
+<%= link_to 'Add a New Post', new_post_path %>
