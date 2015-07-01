@@ -17,7 +17,11 @@
 
     <ul>
      <% @post.comments.each do |comment| %>
-        <li><%= link_to comment.text, post_comment_path(@post, comment)%></li>
+        <li><%= comment.text %>
+        <button><%= link_to "Edit", edit_post_comment_path(@post, comment) %></button>
+          <button><%= link_to "Delete Comment", post_comment_path(@post, comment),
+                    :data => {:confirm => "Confirm?",
+                    :method => "delete"} %></button></li>
      <% end %>
     </ul>
 <% else %>
