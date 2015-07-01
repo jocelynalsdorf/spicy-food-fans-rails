@@ -1,0 +1,13 @@
+<%= render "layouts/errors", :object => @comment %>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+  <%= f.label :user %>
+  <%= f.text_field :user %>
+  <%= f.label :post_id %>
+  <%= f.collection_select :post_id, Post.all, :id, :title, :selected => @post.id%>
+  <%= f.submit %>
+<% end %>

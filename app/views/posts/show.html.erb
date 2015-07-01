@@ -17,7 +17,7 @@
 
     <ul>
      <% @post.comments.each do |comment| %>
-        <li>><%= link_to comment.text, post_comment_path(@post, comment)%></li>
+        <li><%= link_to comment.text, post_comment_path(@post, comment)%></li>
      <% end %>
     </ul>
 <% else %>
@@ -25,3 +25,9 @@
   <h3>There are no comments in this category yet.</h3>
 
 <% end %>
+
+
+<br>
+
+
+<%= link_to 'Add a New Comment', new_post_comment_path(@post) %>
