@@ -1,16 +1,27 @@
 <% content_for :title, "Spicy Stuff | Posts" %>
 
-<h1>Index Posts</h1>
+<h1 class="title-head">Spicy Stuff</h1>
 
-<% if @posts.any? %>
-   <ul>
-     <% @posts.each do |post| %>
-       <li><%= link_to post.title, post_path(post) %></li>
-     <% end %>
-   </ul>
-<% else %>
-   <p><h3>No Posts Currently in Index</h3></p>
- <% end %>
+<div class="container">
+	<div class="row">
+		
+		<div class="col-md-12 post-list-area">
+		<h3 class="main-post-list">Most Recent Posts:</h3>
+		<br>
+		<% if @posts.any? %>	   
+		  <% @posts.each do |post| %>
+		    <div class="col-md-3"><img class="responsive center-block" src="http://placehold.it/200x200"><h5><%= link_to post.title, post_path(post) %></h5></div>
+		 	<% end %>
 
-
-<%= link_to 'Add a New Post', new_post_path %>
+		<% else %>
+		   <p><h3>No Posts Currently in Index</h3></p>
+		 <% end %>
+		</div><!-- end of recent posts col div -->
+	
+	</div><!-- end of 1st row div -->
+	<div class="row add-post-area">
+	<div class="col-md-12">
+		<button class="btn btn-default"><h3 class="main-post-list"><%= link_to 'Add a New Post', new_post_path %></h3></button>
+		</div><!-- end of add post col -->
+	</div><!-- end of 2nd row -->
+</div><!-- end of container div -->

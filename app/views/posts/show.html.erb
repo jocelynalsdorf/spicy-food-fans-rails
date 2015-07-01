@@ -12,12 +12,11 @@
 <%if @post.comments.any? %>
   <h3>Comments in this section:</h3>
 
-  <p>Comment:</p>
-  <p>User Name:</p>
+  <p>Comments:</p>
 
     <ul>
      <% @post.comments.each do |comment| %>
-        <li><%= comment.text %>
+        <li><%= comment.text %> <span class="rating">Rating:</span><%= comment.rating %>
         <button class="edit-btn"><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></button>
           <button><%= link_to "Delete Comment", post_comment_path(@post, comment),
                     :data => {:confirm => "Confirm?",
