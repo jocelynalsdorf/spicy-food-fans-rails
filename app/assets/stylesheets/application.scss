@@ -8,6 +8,10 @@ html {
 	height: 100%;
 }
 
+ul {
+	list-style: none;
+}
+
 body {
 	padding-top: 80px;
 	height: 100%;
@@ -34,6 +38,13 @@ body {
   padding-top: 30px;
   font-size: 22px;
 }
+h4 {
+	font-family: 'Sigmar One', cursive;
+	color: #ED993D;
+	font-size: 22px;
+}
+
+
 
 /*--- index page styling ---*/
 .title-head {
@@ -68,4 +79,33 @@ h5 {
 }
 .btn-default {
 	background-color: #ED993D;
+	color: #CF462D;
+}
+.btn-default a{
+
+	color: #CF462D;
+}
+
+/*-- single post view styling --*/
+
+.post-view-title {
+	font-family: 'Sigmar One', cursive;
+	color: #ED993D;
+	font-size: 34px;
+}
+
+h2.post-view-title {
+	text-align: center;
+	font-family: 'Sigmar One', cursive;
+	color: #ED993D;
+	font-size: 30px;
+}
+
+.single-post h4 {
+	font-size: 18px;
+}
+
+.post-view-author, .average-rating{
+	font-weight: 300;
+	color:  #ED993D;
 }

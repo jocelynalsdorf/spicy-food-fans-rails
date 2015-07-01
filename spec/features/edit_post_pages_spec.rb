@@ -4,13 +4,13 @@ describe "the edit post process" do
 
   it "updates a post" do
     visit posts_path
-    click_on 'Add a New Post'
+    click_link 'Add a New Post'
     fill_in 'Title', :with => 'Tamales'
     fill_in 'Content', :with => ' Very spicy tamales'
     fill_in 'Author', :with => 'Raven'
     click_on 'Create Post'
     click_on 'Tamales'
-    click_on 'Edit Post'
+    click_link 'Edit Post'
     fill_in 'Title', :with => 'Enchiladas'
     click_on 'Update Post'
     expect(page).to have_content 'Enchiladas'

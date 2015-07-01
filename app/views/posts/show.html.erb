@@ -1,36 +1,43 @@
-<h3><%= @post.title %></h3>
 
 
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 post-info-area">
 
+      <p class="title-head"><%= @post.title %></p>
+      <p><span class="average-rating">This post has an average rating of: </span><%= @review_avg %></p>
+      <p class="post-view-body"><%= @post.content %></p>
+      <p><span class="post-view-author">Written by: </span><%= @post.author %></p>
 
-<p><%= link_to "Edit Post", edit_post_path(@post) %></li>
-<p><%= link_to "Delete", post_path(@post),
-                    :data => {:confirm => "Confirm?",
-                    :method => "delete"} %></p>
+      <button class="btn btn-default"><h4 class="single-post"><%= link_to "Edit Post", edit_post_path(@post) %></li></h4></button>
+      <button class="btn btn-default"><h4 class="single-post"><%= link_to "Delete", post_path(@post),
+                          :data => {:confirm => "Confirm?",
+                          :method => "delete"} %></h4></button>
 
-<%if @post.comments.any? %>
-  <h3>Comments in this section:</h3>
+  </div><!-- end of 1st row -->
 
-  <p>Comments:</p>
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Comments:</h4>
+      <%if @post.comments.any? %>      
 
-    <ul>
-     <% @post.comments.each do |comment| %>
-        <li><%= comment.text %> <span class="rating">Rating:</span><%= comment.rating %>
-        <button class="edit-btn"><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></button>
-          <button><%= link_to "Delete Comment", post_comment_path(@post, comment),
-                    :data => {:confirm => "Confirm?",
-                    :method => "delete"} %></button></li>
-     <% end %>
-    </ul>
-<% else %>
+          <ul>
+           <% @post.comments.each do |comment| %>
+              <li><%= comment.text %> <span class="rating">Rating:</span><%= comment.rating %>
+              <button class="edit-btn"><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></button>
+                <button><%= link_to "Delete Comment", post_comment_path(@post, comment),
+                          :data => {:confirm => "Confirm?",
+                          :method => "delete"} %></button></li>
+           <% end %>
+          </ul>
+      <% else %>
 
-  <h3>There are no comments in this category yet.</h3>
+        <span>No one has left a comment. Why don't you leave one??</span>
 
-<% end %>
+      <% end %>
 
-
-<br>
-
-
-<%= link_to 'Add a New Comment', new_post_comment_path(@post) %>
+      <%= link_to 'Add a New Comment', new_post_comment_path(@post) %>
+    </div><!-- end of col-12 -->
+  </div><!-- end of row 2 -->
+</div><!-- end of container -->

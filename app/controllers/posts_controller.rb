@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @review_avg = Comment.where(:post_id => @post.id).average("rating").to_i
   end
 
   def new
